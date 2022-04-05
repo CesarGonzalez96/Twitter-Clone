@@ -1,11 +1,15 @@
 /*
 Common
 ********************/
+html,
+body {
+    height: 100%;
+}
 
 .content{
-    max-Width: '600px';
+max-Width: '600px';
 height: '100%';
-margin: 'auto';
+margin: 0 'auto';
 border-Left: '1px' solid;
 border-Right: '1px' solid;
 }
@@ -15,13 +19,24 @@ border-Right: '1px' solid;
 
 .posts li{
     display:flex;
+    border-bottom: 1px solid;
 }
 
 .posts li .logo{
     flex-basis: 15%;
+}
+.posts li .logo img {
+    width: 75%;
 }
 
 .posts li .name_body {
     flex-basis: 85%;
 }
 
+.posts li  .name {
+    font-weight: bold;
+}
+
+.posts li .datetime {
+    color: rgb(197, 197, 197);
+}

@@ -9,9 +9,12 @@
         <div class="logo">
           <img src="{% static 'img/user.png' %}" />
         </div>
-        <div class="name">{{ post.name }}<br /></div>
-        <div class="time">{{ post.created_at }} <br /></div>
-        <p>{{ post.body }}<br /></p>
+        <div class="body">
+          <div class="name">{{ post.name }}<br /></div>
+          <div class="time">{{ post.created_at }} <br /></div>
+
+          <p>{{ post.body }}<br /></p>
+        </div>
       </li>
       {% endfor %}
     </ul>
