@@ -1,0 +1,27 @@
+/*
+Common
+********************/
+
+.content{
+    max-Width: '600px';
+height: '100%';
+margin: 'auto';
+border-Left: '1px' solid;
+border-Right: '1px' solid;
+}
+
+/*Post
+*****************/
+
+.posts li{
+    display:flex;
+}
+
+.posts li .logo{
+    flex-basis: 15%;
+}
+
+.posts li .name_body {
+    flex-basis: 85%;
+}
+
