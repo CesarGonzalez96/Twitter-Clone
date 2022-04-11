@@ -46,7 +46,10 @@
           <div class="datetime">{{ post.created_at }} <br /></div>
           <div class="likes">{{ post.likes }} <br /></div>
           <p contenteditable="true">{{ post.body }}<br /></p>
+          {% if post.image.url %}
+
           <img class="post_image" src="{{ post.image.url }}" />
+          {% endif %}
         </div>
       </li>
       {% endfor %}
