@@ -28,8 +28,7 @@ SECRET_KEY = 'django-insecure-8!xez%8m)ju#5^a1z1(15^j4vy&$)+h*@t%n6)ux!%w$0o_pdy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'https://git.heroku.com/boiling-lake-90284.git', '127.0.0.8000']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
