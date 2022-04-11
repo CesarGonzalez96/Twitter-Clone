@@ -71,12 +71,9 @@ img.icon {
     margin-top: 1%;
     background-color: lightskyblue;
 }
-.cancel_button {
-    width: 12%;
-    right: 30%;   
-  
-    background-color: gray;
-    position: relative;
+
+.edit-update{
+    display: flex;
 }
 
 .post_form input{
