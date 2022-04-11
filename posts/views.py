@@ -19,7 +19,7 @@ def index(request):
         else:
             return HttpResponseRedirect(form.errors.as_json())
     # Get posts, limit 20
-    posts = Post.objects.all()[:20]
+    posts = Post.objects.all().order_by('-created_at')[:20]
 
     # show
     return render(request, 'posts.html',
@@ -49,7 +49,6 @@ def dislike(request, post_id):
 def edit(request, post_id):
     if request.method == "GET":
         posts = Post.objects.get(id=post_id)
-        posts.delete()
         return render(request, "edit.html", {"posts": posts})
     if request.method == "POST":
         editposts = Post.objects.get(id=post_id)
