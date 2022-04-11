@@ -1,4 +1,9 @@
+from contextlib import nullcontext
+from distutils.command.upload import upload
+from email.mime import image
+from email.policy import default
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class Post(models.Model):
@@ -14,3 +19,6 @@ class Post(models.Model):
     created_at = models.DateTimeField(
         'Created DateTime', blank=True, auto_now_add=True
     )
+    likes = models.IntegerField(
+        'Likes', default=1,)
+    image = CloudinaryField('image', blank=True)

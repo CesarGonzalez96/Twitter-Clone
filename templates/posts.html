@@ -1,24 +1,63 @@
 {% extends "base.html" %} {% block content %}{% load static %}
 
 <section class="content">
-  <section class="post_form">Post Form</section>
+  <section class="heading">
+    <img src="/static/img/twit logo.png" class="logo" />
+    <h1>Home</h1>
+  </section>
+  <section class="post_form">
+    {% load cloudinary %}
+    <form action="/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {{ post.image }}
+      <input type="text" name="name" placeholder="name" required />
+      <textarea name="body" placeholder="What's happening" required></textarea>>
+      <input type="hidden" class="like_count" name="likes" value="1" readonly />
+      <input type="file" id="myFile" name="image" />
+      <input type="submit" id="Tweet" value="Tweet" />
+    </form>
+  </section>
   <section class="posts">
     <ul>
       {% for post in posts %}
       <li>
+        <img
+          class="menu_icon js_menu_icon"
+          src="{% static 'img/options.png' %}"
+        />
+        <div class="menu">
+          <a href="/delete/{{ post.id }}/">delete</a><br />
+          <a href="/edit/{{ post.id }}/">edit</a><br />
+        </div>
+
+        <div class="thumbs_logo">
+          <a href="/like/{{ post.id }}">
+            <img class="like_logo" src="{% static 'img/like.png' %}" />
+          </a>
+          <a href="/dislike/{{ post.id }}">
+            <img class="dislike_logo" src="{% static 'img/dislike.png' %}" />
+          </a>
+        </div>
+
         <div class="logo">
           <img src="{% static 'img/user.png' %}" />
         </div>
-        <div class="body">
+        <div class="name_body">
           <div class="name">{{ post.name }}<br /></div>
-          <div class="time">{{ post.created_at }} <br /></div>
-
-          <p>{{ post.body }}<br /></p>
+          <div class="datetime">{{ post.created_at }} <br /></div>
+          <div class="likes">{{ post.likes }} <br /></div>
+          <p contenteditable="true">{{ post.body }}<br /></p>
+          <img class="post_image" src="{{ post.image.url }}" />
         </div>
       </li>
       {% endfor %}
     </ul>
   </section>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"
+  ></script>
+  <script src="{% static 'js/posts.js' %}"></script>
 </section>
 
 {% endblock %}

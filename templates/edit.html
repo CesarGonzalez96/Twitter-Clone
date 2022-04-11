@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block content %}{% load static %}
+
+<section class="content">
+  <section class="heading">
+    <img src="/static/img/twit logo.png" class="logo" />
+    <h1>Home</h1>
+  </section>
+  <section class="post_form">
+    <form action="/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="name" value="{{posts.name}}" required />
+      <textarea name="body" placeholder="{{posts.body}}" required></textarea>>
+      <img src="{{posts.image.url}}" alt="" /><br />
+
+      <input type="file" id="myFile" name="image" value="{{post.image.url}}" />
+      <input type="hidden" class="like_count" name="likes" value="1" readonly />
+      <input type="submit" id="Tweet" value="Update" />
+      <a href="{% url 'index' %}" class="cancel_button"> Cancel</a>
+    </form>
+  </section>
+</section>
+{% endblock %}
