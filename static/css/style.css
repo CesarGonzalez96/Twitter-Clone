@@ -59,9 +59,9 @@ img.icon {
 }
 #Tweet {
     width: 15%;
-    border-radius: 6px;
-    margin-left: 17%;
-    margin-top: 1%;
+    /* border-radius: 6px; */
+    /* margin-left: 17%; */
+    /* margin-top: 1%; */
     background-color: lightskyblue;
 }
 #comment_edit {
